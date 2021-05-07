@@ -36,7 +36,7 @@
       "projectType": "application",
       "root": "apps/core",
       "sourceRoot": "apps/core/src",
-      "prefix": "fl-test",
+      "prefix": "fl-core",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -139,6 +139,43 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["apps/core-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    },
+    "fl-core": {
+      "projectType": "library",
+      "root": "libs/fl-core",
+      "sourceRoot": "libs/fl-core/src",
+      "prefix": "fl-core",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "options": {
+            "tsConfig": "libs/fl-core/tsconfig.lib.json",
+            "project": "libs/fl-core/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/fl-core/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/fl-core/src/**/*.ts",
+              "libs/fl-core/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/fl-core"],
+          "options": {
+            "jestConfig": "libs/fl-core/jest.config.js",
+            "passWithNoTests": true
           }
         }
       }

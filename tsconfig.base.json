@@ -14,7 +14,9 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@fl-test/core": ["libs/fl-core/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
