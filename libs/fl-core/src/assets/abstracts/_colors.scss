@@ -1,0 +1,98 @@
+$midnight-blue: #00295c;
+$green-hill: #00e062;
+$azure-radiance: #0091ff;
+$link-water: #f7f9fd;
+$bright-green: #6DD400;
+$light-green: #047d65;
+$bali-hai: #7b90aa;
+$mine-shaft: #262626;
+$spindle: #b0bac9;
+$persian-red: #d13737;
+$pure-orange-transparent: #f7b5001a;
+$alice-blue: #f0f8ff;
+$nobel: #979797;
+$white-smoke: #f7f7f7;
+$gray20: #333;
+$jelly-bean: #75438a;
+$wakes-blue: #d7dce4;
+$sandrift: #7f94ad;
+$whisper: #eee;
+$rock-blue: #9ca5b3;
+$dodger-blue: #0091ff;
+$athens-gray: #eaecef;
+$blaze-orange: #F60;
+$midnight: #24303e;
+$heather: #c0cad7;
+
+$white: #fff;
+$black: #000;
+
+$primary-blue: $midnight-blue;
+$primary-green: $green-hill;
+$primary-gray: $bali-hai;
+$secondary-gray: $spindle;
+$primary-black: $mine-shaft;
+
+// Navigation
+$nav-link: $spindle;
+$nav-link-active: $white;
+$nav-link-beta: $primary-green;
+$nav-link-upcoming: $azure-radiance;
+$nav-link-label-border: rgba($white, 0.2);
+
+// Background-colors
+$background-white: $white;
+$background-blue: $primary-blue;
+$background-gray: $white-smoke;
+$background-water: $link-water;
+$background-orange: $pure-orange-transparent;
+
+$error-color: $persian-red;
+
+.bg-white { background-color: $background-white; }
+.bg-blue { background-color: $background-blue; }
+.bg-gray { background-color: $background-gray; }
+.bg-orange { background-color: $background-orange; }
+.bg-water { background-color: $background-water; }
+
+@mixin background ($color) {
+  background-color: $color;
+}
+
+// Background-colors disabled
+$background-blue-disabled: #5a85bb;
+
+// Border-colors
+$border: rgba($spindle, 0.3);
+$smscode-border: $border;
+$paginator-border: $border;
+
+// Input textbox colors
+$input-placeholder-color: $bali-hai;
+$input-text-color: $mine-shaft;
+$input-focus-color: $azure-radiance;
+
+// Lighten and darken pcts
+$default-darken-pct: 3%;
+$default-lighten-pct: 3%;
+$high-lighten-pct: 10%;
+$disabled-pct: 25%;
+
+// Opacity
+$opacity-full: 0;
+$opacity-high: 0.1;
+$opacity-medium: 0.3;
+$opacity-low: 0.7;
+$opacity-very-low: 0.9;
+$no-opacity: 1;
+
+// Color palette (future refactoring)
+$color-info: $azure-radiance;
+$color-success: $green-hill;
+$color-hint: $link-water;
+$color-warning: $blaze-orange;
+$color-danger: $persian-red;
+
+$color-primary: $color-info;
+$color-accent: $color-success;
+

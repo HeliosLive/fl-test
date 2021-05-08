@@ -1,25 +1,30 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { createComponentFactory, Spectator } from '@ngneat/spectator';
 import { ButtonComponent } from './button.component';
 
-describe('ButtonComponent', () => {
-  let component: ButtonComponent;
-  let fixture: ComponentFixture<ButtonComponent>;
-
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ ButtonComponent ]
-    })
-    .compileComponents();
+describe('ButtonComponent', () => { 
+  let spectator: Spectator<ButtonComponent>;
+  const createComponent = createComponentFactory({
+    component: ButtonComponent,
+    shallow: true
   });
-
+  
   beforeEach(() => {
-    fixture = TestBed.createComponent(ButtonComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    spectator = createComponent({
+      props: { text: 'Button text '}
+    });
   });
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+    expect(spectator.component).toBeTruthy();
   });
+
+  it('should display the text', () => {
+    const button = spectator.query('button');
+    expect(button.textContent).toContain('Button text');
+  });
+  
 });
+
+
+
+

@@ -1,0 +1,14 @@
+@import './colors';
+
+$border-radius: 4px;
+$border-thin: 1px;
+$border-medium: 2px;
+$border-style: solid;
+
+$border-black: $border-thin $border-style rgba($primary-black, $opacity-high);
+$border-gray: $border-thin $border-style $athens-gray;
+$border-light-gray: $border-thin $border-style rgba($spindle, $opacity-medium);
+
+@mixin border-thin($color, $opacity) {
+  border: $border-thin $border-style rgba($color, $opacity);
+}
