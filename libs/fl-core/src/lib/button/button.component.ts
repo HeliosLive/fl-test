@@ -1,6 +1,7 @@
 import {
   ChangeDetectionStrategy,
   Component,
+  ElementRef,
   EventEmitter,
   Input,
   OnInit,
@@ -8,12 +9,13 @@ import {
 } from '@angular/core';
 
 export enum BUTTON_HOST_ATTRIBUTES {
-  BUTTON = 'button',
-  FLAT_BUTTON = 'flat-button',
-  ICON_BUTTON = 'icon-button',
-  RAISED_BUTTON = 'raised-button',
-  STROKED_BUTTON = 'stroked-button',
-  FAB_BUTTON = 'fab-button',
+  button = 'mat-button',
+  flat = 'mat-flat-button',
+  icon = 'mat-icon-button',
+  raised = 'mat-raised-button',
+  stroked = 'mat-stroked-button',
+  fab = 'mat-fab',
+  mini_fab = 'mat-mini-fab',
 }
 
 export enum BUTTON_COLOR_ATTRIBUTES {
@@ -25,13 +27,14 @@ export enum BUTTON_COLOR_ATTRIBUTES {
 }
 
 @Component({
-  selector: 'fl-core-button',
+  selector: `fl-core-button`,
+  // selector: `fl-core-button[button],fl-core-button[raised-button],fl-core-button[fab-button]`,
   templateUrl: './button.component.html',
   styleUrls: ['./button.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ButtonComponent implements OnInit {
-  @Input('type') type: BUTTON_HOST_ATTRIBUTES = BUTTON_HOST_ATTRIBUTES.BUTTON;
+  @Input('type') type: BUTTON_HOST_ATTRIBUTES = BUTTON_HOST_ATTRIBUTES.button;
   @Input('color') color: BUTTON_COLOR_ATTRIBUTES =
     BUTTON_COLOR_ATTRIBUTES.DEFAULT;
   @Input('textColor') textColor: BUTTON_COLOR_ATTRIBUTES =
@@ -45,7 +48,19 @@ export class ButtonComponent implements OnInit {
   @Input() testId: string;
   @Input() colorScheme: string;
   @Output() clicked: EventEmitter<any> = new EventEmitter();
-  constructor() {}
+
+  constructor(public elementRef: ElementRef) {}
 
   ngOnInit(): void {}
+
+  /** Gets whether the button has one of the given attributes. */
+  _hasHostAttributes(...attributes: string[]) {
+    return attributes.some((attribute) =>
+      this._getHostElement().hasAttribute(attribute)
+    );
+  }
+
+  _getHostElement() {
+    return this.elementRef.nativeElement;
+  }
 }

@@ -1,7 +1,3 @@
-<button type="button">{{ text }}</button>
-
-<button mat-button [color]="color">{{ text }}</button>
-
 <div
   class="chip"
   [class.chip-white]="colorScheme === 'white'"
@@ -15,19 +11,19 @@
     [disabled]="disabled || loading"
     [attr.data-cy]="testId"
   >
-    <div style="display: flex; justify-content: space-evenly">
-      <fl-core-icon *ngIf="icon" [name]="icon"></fl-core-icon>
-      <div class="chip-text" [style.color]="textColor">
-        {{ loading ? loadingText : text }}
-      </div>
-      <div class="chip-loading" *ngIf="loading">
-        <fl-core-lottie-animation
-          [animationPath]="'btn-loader'"
-          [width]="24"
-          [height]="24"
-        >
-        </fl-core-lottie-animation>
-      </div>
+    <!-- <div style="display: flex; justify-content: space-evenly"> -->
+    <fl-core-icon *ngIf="icon" [name]="icon"></fl-core-icon>
+    <div class="chip-text" [style.color]="textColor">
+      {{ loading ? loadingText : text }}
     </div>
+    <div class="chip-loading" *ngIf="loading">
+      <fl-core-lottie-animation
+        [animationPath]="'btn-loader'"
+        [width]="24"
+        [height]="24"
+      >
+      </fl-core-lottie-animation>
+    </div>
+    <!-- </div> -->
   </button>
 </div>
